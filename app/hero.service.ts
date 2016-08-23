@@ -7,6 +7,12 @@ import {HEROES} from './mock-heroes';
 export class HeroService{
     getHeroes(): Promise<Hero[]>{
         return Promise.resolve(HEROES);
-    }
+    };
+
+    getHeroesSlowly(): Promise<Hero[]>{
+        return new Promise<Hero[]>
+        (resolve => setTimeout(() => resolve(HEROES), 2000) // 2 SEconds
+        );
+    };
 
 }
